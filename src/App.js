@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import AppHeader from "./js/appHeader";
 import Login from "./js/login";
 import PostList from "./js/views/posts/list";
 import PostView from "./js/views/posts/view";
@@ -9,7 +8,6 @@ import UserList from "./js/views/users/list";
 import UserView from "./js/views/users/view";
 import UserEdit from "./js/views/users/edit";
 import "bulma/css/bulma.css";
-import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
@@ -59,15 +57,18 @@ class App extends Component {
                 <a className="button is-primary">
                   <strong>Sign up</strong>
                 </a>
-                <a className="button is-light">
+                <div className="button is-light">
                   <Link to={"/login"} className="navbar-item">
                     Login
                   </Link>
-                </a>
+                </div>
               </div>
             </div>
           </div>
         </nav>
+        <div className="bd-main">
+        <div className="columns container">
+        <div className="column is-three-quarters">
         <Switch>
          <Route
            path="posts/:pageNum/?"
@@ -80,7 +81,11 @@ class App extends Component {
          <Route
            path="/login"
            render={props => <Login {...props} />} />
-       </Switch>
+        </Switch>
+        </div>
+
+        </div>
+        </div>
       </Router>
     );
   };
